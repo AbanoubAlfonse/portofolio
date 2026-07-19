@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abanoub Alfonse | Data Analyst Portfolio</title>
+<meta name="description" content="Abanoub Alfonse — Certified Data Analyst helping startups and business owners turn complex data into strategic, revenue-driving decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #121212;
+    --bg-alt: #171717;
+    --card: #1b1b1b;
+    --card-border: #2a2a2a;
+    --card-hover: #202020;
+    --text: #f2f2f0;
+    --text-muted: #9a9a97;
+    --text-dim: #6f6f6c;
+    --accent: #39ff88;
+    --accent-dim: #21c46a;
+    --accent-glow: rgba(57,255,136,0.18);
+    --radius: 14px;
+    --maxw: 1160px;
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  section{ position:relative; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+
+  ::selection{ background:var(--accent); color:#0a0a0a; }
+
+  h1,h2,h3,h4{ font-family:var(--font-display); font-weight:700; letter-spacing:-0.02em; }
+
+  .profile-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:50px;
+    padding:6px 18px 6px 6px;
+    margin-bottom:22px;
+  }
+  .profile-badge img{
+    width:38px; height:38px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1.5px solid var(--accent);
+  }
+  .pb-name{ font-size:13.5px; font-weight:600; color:var(--text); line-height:1.3; }
+  .pb-role{ font-family:var(--font-mono); font-size:11px; color:var(--accent); line-height:1.3; }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    background:var(--accent);
+    border-radius:50%;
+    box-shadow:0 0 10px var(--accent);
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:10px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#0a0a0a;
+    box-shadow:0 0 0 0 var(--accent-glow);
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px -6px var(--accent-glow);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--card-border);
+  }
+  .btn-ghost:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-2px);
+  }
+  .btn-sm{ padding:10px 18px; font-size:13.5px; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:1000;
+    background:rgba(18,18,18,0.75);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:19px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand .dot{
+    width:9px; height:9px;
+    background:var(--accent);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--accent);
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+  }
+  .nav-links a{
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--text-muted);
+    position:relative;
+    padding:4px 0;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0; height:1.5px;
+    background:var(--accent);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none; border:none; cursor:pointer;
+    padding:6px;
+  }
+  .nav-toggle span{
+    width:22px; height:2px; background:var(--text); border-radius:2px;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:180px 0 120px;
+    position:relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-120px; right:-160px;
+    width:560px; height:560px;
+    background:radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    filter:blur(20px);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(36px, 5vw, 58px);
+    line-height:1.08;
+    margin-bottom:24px;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(90deg, var(--accent) 0%, #7dffb0 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lead{
+    font-size:17.5px;
+    color:var(--text-muted);
+    max-width:560px;
+    margin-bottom:36px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .hero-meta{
+    display:flex;
+    gap:34px;
+    flex-wrap:wrap;
+  }
+  .hero-meta .num{
+    font-family:var(--font-mono);
+    font-size:24px;
+    font-weight:600;
+    color:var(--accent);
+  }
+  .hero-meta .lbl{
+    font-size:12.5px;
+    color:var(--text-dim);
+    margin-top:2px;
+  }
+
+  /* hero visual: mock dashboard card */
+  .hero-visual{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,0.6);
+  }
+  .hero-visual .hv-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+  }
+  .hv-dots{ display:flex; gap:6px; }
+  .hv-dots span{ width:9px; height:9px; border-radius:50%; background:#3a3a3a; }
+  .hv-tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--accent);
+    border:1px solid var(--accent-dim);
+    padding:3px 9px;
+    border-radius:20px;
+    background:rgba(57,255,136,0.06);
+  }
+  .hv-bars{
+    display:flex;
+    align-items:flex-end;
+    gap:10px;
+    height:150px;
+    padding:10px 4px 0;
+    border-bottom:1px solid var(--card-border);
+    margin-bottom:14px;
+  }
+  .hv-bars .bar{
+    flex:1;
+    background:linear-gradient(180deg, var(--accent) 0%, var(--accent-dim) 100%);
+    border-radius:6px 6px 0 0;
+    opacity:0.85;
+    animation:rise 1.4s ease forwards;
+    transform-origin:bottom;
+  }
+  @keyframes rise{
+    from{ transform:scaleY(0); }
+    to{ transform:scaleY(1); }
+  }
+  .hv-rows{ display:flex; flex-direction:column; gap:9px; }
+  .hv-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-muted);
+  }
+  .hv-row b{ color:var(--text); font-weight:500; }
+  .hv-row .up{ color:var(--accent); }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-head{
+    max-width:620px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.6vw,38px);
+    margin-bottom:14px;
+  }
+  .section-head p{
+    color:var(--text-muted);
+    font-size:16px;
+  }
+
+  section.py{ padding:110px 0; }
+  .alt-bg{ background:var(--bg-alt); border-top:1px solid rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.05); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:70px;
+    align-items:start;
+  }
+  .about-copy p{ color:var(--text-muted); margin-bottom:18px; font-size:16px; }
+  .about-copy strong{ color:var(--text); font-weight:600; }
+  .stat-cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .stat-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius);
+    padding:26px 22px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .stat-card:hover{ border-color:var(--accent-dim); transform:translateY(-3px); }
+  .stat-card .num{
+    font-family:var(--font-mono);
+    font-size:30px;
+    font-weight:600;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .stat-card .lbl{ font-size:13.5px; color:var(--text-muted); }
+
+  .how-list{ margin-top:34px; display:flex; flex-direction:column; gap:22px; }
+  .how-item{ display:flex; gap:16px; }
+  .how-icon{
+    flex-shrink:0;
+    width:40px; height:40px;
+    border-radius:10px;
+    background:rgba(57,255,136,0.08);
+    border:1px solid var(--accent-dim);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--accent);
+    font-family:var(--font-mono);
+    font-weight:600;
+    font-size:14px;
+  }
+  .how-text h4{ font-size:16px; margin-bottom:5px; }
+  .how-text p{ color:var(--text-muted); font-size:14.5px; }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .skill-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius);
+    padding:30px 24px;
+    transition:transform .22s ease, border-color .22s ease, background .22s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .skill-card::after{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:2px;
+    background:linear-gradient(90deg, transparent, var(--accent), transparent);
+    transform:scaleX(0);
+    transition:transform .3s ease;
+  }
+  .skill-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent-dim);
+    background:var(--card-hover);
+  }
+  .skill-card:hover::after{ transform:scaleX(1); }
+  .skill-icon{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--accent);
+    background:rgba(57,255,136,0.08);
+    width:44px; height:44px;
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+    font-weight:700;
+  }
+  .skill-card h3{ font-size:18px; margin-bottom:8px; }
+  .skill-card p{ font-size:13.8px; color:var(--text-muted); }
+
+  /* ---------- PROJECTS ---------- */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .project-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:transform .22s ease, border-color .22s ease;
+  }
+  .project-card:hover{ transform:translateY(-6px); border-color:var(--accent-dim); }
+  .project-thumb{
+    height:170px;
+    background:
+      repeating-linear-gradient(135deg, rgba(57,255,136,0.05) 0 2px, transparent 2px 14px),
+      linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    border-bottom:1px solid var(--card-border);
+  }
+  .project-thumb-img{ padding:0; overflow:hidden; }
+  .project-thumb-img img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:top;
+    transition:transform .4s ease;
+  }
+  .project-card:hover .project-thumb-img img{ transform:scale(1.04); }
+  .project-thumb .glyph{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--text-dim);
+    letter-spacing:0.08em;
+  }
+  .project-thumb::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 30% 30%, var(--accent-glow), transparent 60%);
+    opacity:0.5;
+  }
+  .project-body{
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .project-tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--accent);
+    background:rgba(57,255,136,0.08);
+    border:1px solid var(--accent-dim);
+    padding:3px 9px;
+    border-radius:20px;
+  }
+  .project-body h3{ font-size:19px; margin-bottom:10px; }
+  .project-body p{ font-size:14.3px; color:var(--text-muted); margin-bottom:20px; flex:1; }
+  .project-actions{ display:flex; gap:10px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-radius:22px;
+    padding:70px 60px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .contact-box::before{
+    content:"";
+    position:absolute;
+    top:-100px; left:50%; transform:translateX(-50%);
+    width:500px; height:300px;
+    background:radial-gradient(circle, var(--accent-glow), transparent 70%);
+    filter:blur(10px);
+  }
+  .contact-box h2{ font-size:clamp(28px,4vw,42px); margin-bottom:16px; position:relative; }
+  .contact-box p{ color:var(--text-muted); max-width:520px; margin:0 auto 34px; font-size:16.5px; position:relative; }
+  .contact-actions{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; position:relative; }
+
+  .contact-icons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    position:relative;
+  }
+  .icon-circle{
+    position:relative;
+    width:58px; height:58px;
+    border-radius:50%;
+    background:var(--bg);
+    border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-muted);
+    transition:transform .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+  }
+  .icon-circle svg{ width:24px; height:24px; }
+  .icon-circle:hover{
+    color:var(--accent);
+    border-color:var(--accent);
+    transform:translateY(-4px);
+    box-shadow:0 10px 26px -8px var(--accent-glow);
+  }
+  .icon-circle .tooltip{
+    position:absolute;
+    bottom:calc(100% + 10px);
+    left:50%;
+    transform:translateX(-50%) translateY(4px);
+    background:var(--card);
+    border:1px solid var(--card-border);
+    color:var(--text);
+    font-family:var(--font-mono);
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:6px;
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .icon-circle:hover .tooltip{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .contact-note{
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--text-dim);
+    margin-top:22px;
+    position:relative;
+  }
+
+  footer{
+    padding:50px 0 40px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .footer-brand{ font-family:var(--font-mono); font-size:13px; color:var(--text-dim); }
+  .footer-links{ display:flex; gap:28px; }
+  .footer-links a{
+    font-size:14px; color:var(--text-muted);
+    display:flex; align-items:center; gap:7px;
+    transition:color .2s ease;
+  }
+  .footer-links a:hover{ color:var(--accent); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; max-width:460px; }
+    .about-grid{ grid-template-columns:1fr; gap:50px; }
+    .skills-grid{ grid-template-columns:repeat(2,1fr); }
+    .projects-grid{ grid-template-columns:repeat(2,1fr); }
+    .contact-box{ padding:50px 30px; }
+  }
+  @media (max-width: 760px){
+    .nav-links{
+      position:fixed;
+      top:64px; left:0; right:0;
+      background:rgba(18,18,18,0.98);
+      backdrop-filter:blur(14px);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      padding:10px 32px 20px;
+      border-bottom:1px solid var(--card-border);
+      transform:translateY(-130%);
+      transition:transform .3s ease;
+    }
+    .nav-links.open{ transform:translateY(0); }
+    .nav-links a{ padding:12px 0; width:100%; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .nav-cta .btn-ghost{ display:none; }
+    .nav-toggle{ display:flex; }
+    .hero{ padding:130px 0 80px; }
+    .hero-actions{ flex-direction:column; align-items:stretch; }
+    .hero-meta{ gap:24px; }
+    .stat-cards{ grid-template-columns:1fr 1fr; }
+    .skills-grid{ grid-template-columns:1fr 1fr; }
+    .projects-grid{ grid-template-columns:1fr; }
+    section.py{ padding:80px 0; }
+    .wrap{ padding:0 22px; }
+  }
+  @media (max-width: 420px){
+    .skills-grid{ grid-template-columns:1fr; }
+    .stat-cards{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#home" class="brand"><span class="dot"></span>Abanoub Alfonse</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="mailto:abanoubalfonse@gmail.com" class="btn btn-ghost btn-sm">Email Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="profile-badge">
+          <div>
+            <div class="pb-name">Abanoub Alfonse</div>
+            <div class="pb-role">Junior Data Analyst</div>
+          </div>
+        </div>
+        <div class="eyebrow">Junior Data Analyst</div>
+        <h1>Turning raw data into <span class="grad">revenue-driving</span> decisions.</h1>
+        <p class="lead">Highly motivated and analytical Junior Data Analyst specializing in building interactive dashboards and data pipelines to drive data-informed decision-making. Skilled in leveraging Excel, SQL, Power BI, and Python to transform unstructured data into actionable business intelligence.</p>
+        <div class="hero-actions">
+          <a href="https://www.linkedin.com/in/abanoub-alfonse-765a451b7/" target="_blank" rel="noopener" class="btn btn-primary">Let's Chat →</a>
+          <a href="#projects" class="btn btn-ghost">View Projects</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hv-top">
+          <div class="hv-dots"><span></span><span></span><span></span></div>
+          <div class="hv-tag">live_dashboard.pbix</div>
+        </div>
+        <div class="hv-bars">
+          <div class="bar" style="height:38%;"></div>
+          <div class="bar" style="height:62%;"></div>
+          <div class="bar" style="height:48%;"></div>
+          <div class="bar" style="height:80%;"></div>
+          <div class="bar" style="height:56%;"></div>
+          <div class="bar" style="height:92%;"></div>
+          <div class="bar" style="height:70%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Projects</div>
+        <h2>Real datasets, real business questions</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-tags"><span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Dashboard</span></div>
+            <h3>FIFA World Cup 2022 Performance Analysis</h3>
+            <p>Cleaned and analyzed complex World Cup datasets using SQL and Excel to evaluate team metrics, and built an interactive dashboard.</p>
+            <div class="project-actions">
+              <a href="https://github.com/AbanoubAlfonse/-Fifa-WorldCup2022-Analysis" target="_blank" class="btn btn-ghost btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+            <h3>Interactive Sales Performance Dashboard</h3>
+            <p>Formulated pipelines using Python (Pandas/NumPy) to clean raw data, and designed a high-fidelity Power BI dashboard with custom DAX.</p>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-tags"><span class="tag">SQL</span><span class="tag">Excel Dashboard</span></div>
+            <h3>Pizza Sales Performance Analysis</h3>
+            <p>Extracted over 20,000 sales records using advanced SQL queries and built an interactive executive Excel dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+</script>
+</body>
+</html>
